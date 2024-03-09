@@ -6,4 +6,4 @@ APPLICATION GOALS:
 TECHNOLOGIES USED:
 [TECHNOLOGIES]
 
-The output should be using in JSON format below and can be parsed using json.loads() in Python. And do not add any other explanations unless the JSON object and the JSON key should be 'description'.
+The output should be in JSON format below and can be parsed using json.loads() in Python. And do not add any other explanations unless the JSON object and the JSON key should be 'description'.
