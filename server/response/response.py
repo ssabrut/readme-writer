@@ -16,4 +16,5 @@ class Response(BaseModel):
     
     status: int
     message: str
-    value: Optional[Union[Dict, List]] = None
+    token: str = None
+    value: Optional[Union[Dict, List, str]] = None

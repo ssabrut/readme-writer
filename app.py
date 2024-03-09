@@ -1,13 +1,21 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from server.response import Response
-import requests
+from src.endpoint import auth_router
 
 app = FastAPI()
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.get("/", response_model=Response)
 def root():
-    return Response(status=200, message="success", value={"message": "Hello, World!"})
+    return Response(status=200, message="success", value="Hello, World!")
 
-@app.post('/api/register', response_model=Response)
-def register():
-    return Response(status=200, message="success", value=claude.dict())
+app.include_router(auth_router, prefix="/api")

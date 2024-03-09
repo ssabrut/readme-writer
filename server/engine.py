@@ -1,6 +1,7 @@
 import motor.motor_asyncio
 from dotenv import load_dotenv
 import os
+import certifi
 
 load_dotenv()
 
@@ -10,5 +11,5 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 
 DB_URL = f"mongodb+srv://{DB_USER}:{DB_PASSWORD}@{DB_SERVER}"
 
-client = motor.motor_asyncio.AsyncIOMotorClient(DB_URL)
+client = motor.motor_asyncio.AsyncIOMotorClient(DB_URL, tlsCAFile=certifi.where())
 database = client.readmewriter
